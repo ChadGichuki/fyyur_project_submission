@@ -1,0 +1,27 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Show Search{% endblock %}
+{% block content %}
+
+    <div class="page-header">
+        <h1>Fyyur Search!</h1>
+    </div>
+    <p class="lead"> Show Search </p>
+    <p> Search for shows based on artists </p>
+    <br>
+    <h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+    <ul class="nav nav-pills">
+        {% for show in results.data %}
+        <li class="active">
+                <div class="item">
+                    <h5>{{ show.start_time|datetime('full') }}</h5>
+                    <h5>{{ show.artist_name }}</h5>
+                    <p>Playing at:</p>
+                    <h5>{{ show.venue_name }}</h5>
+                </div>
+        </li>
+        (% endfor %)
+    </ul>
+
+<!--Todo implement show search frontend -->
+
+{% endblock %}
